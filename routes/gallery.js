@@ -14,7 +14,7 @@ const { requireSignin, isAuth, isAdmin } = require('../controllers/auth');
 const { productById } = require('../controllers/product');
 
 router.get('/gallery/:galleryId', read);
-router.post('/gallery/create/:userById', requireSignin, create);
+router.post('/gallery/create/', create);
 router.get('/gallery/related/:projectId', listRelated);
 router.get('/gallery/file/:galleryId', file);
 router.delete('/gallery/remove/:reportId/:userId', requireSignin, remove);

@@ -19,6 +19,30 @@ exports.productById = (req, res, next, id) => {
     });
 };
 
+
+exports.listByCat = (req, res, next, id) => {
+  Product.find({ category: id })
+    .populate('category')
+    .exec((err, productCat) => {
+      if (err || !productCat) {
+        return res.status(400).json({
+          error: 'Product not found',
+        });
+      }
+
+      req.productCat = productCat;
+      next();
+    });
+};
+
+
+exports.Listread = (req, res) => {
+   req.productCat.photo = undefined;
+  return res.json(req.productCat);
+
+};
+
+
 exports.read = (req, res) => {
   req.product.photo = undefined;
   return res.json(req.product);
@@ -39,13 +63,7 @@ exports.create = (req, res) => {
 
     const { name, description, price, category, timeLine } = fields;
 
-    if (
-      !name ||
-      !description ||
-      !price ||
-      !category 
-
-    ) {
+    if (!name || !description || !price || !category) {
       return res.status(400).json({
         error: 'All fields are required',
       });
@@ -67,8 +85,8 @@ exports.create = (req, res) => {
     product.save((err, result) => {
       if (err) {
         return res.status(400).json({
-        //   error: errorHandler(err),
-            err
+          //   error: errorHandler(err),
+          err,
         });
       }
       res.json(result);
@@ -162,6 +180,12 @@ exports.list = (req, res) => {
     });
 };
 
+
+
+
+
+
+
 /**
  * it will find the product based on the rquest produt category
  * other product that has the same category will be return
@@ -182,10 +206,11 @@ exports.listRelated = (req, res) => {
 };
 
 exports.listCategories = (req, res) => {
+  console.log("testing");
   Product.distinct('category', {}, (err, categories) => {
     if (err) {
       return res.status(400).json({
-        error: 'Product not found',
+        error: 'Productsss not found',
       });
     }
     res.json(categories);
@@ -227,7 +252,10 @@ exports.listBySearch = (req, res) => {
     }
   }
 
-  Product.find(findArgs)
+ 
+   let date1 = req.params.PID;
+ console.log(date1);
+  Product.find({ category: date1 })
     .select('-photo')
     .populate('category')
     .sort([[sortBy, order]])

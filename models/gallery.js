@@ -3,9 +3,9 @@ const {ObjectId} = mongoose.Schema
 const gallerySchema = new mongoose.Schema({
   
     
-    project: {
+    product: {
         type: ObjectId,
-        ref: 'Project',
+        ref: 'Product',
         required: true,
     },
     file: {
