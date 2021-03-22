@@ -254,7 +254,7 @@ exports.listBySearch = (req, res) => {
 
  
    let date1 = req.params.PID;
- console.log(date1);
+
   Product.find({ category: date1 })
     .select('-photo')
     .populate('category')

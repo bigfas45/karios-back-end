@@ -1,4 +1,4 @@
-const Order  = require('../models/order');
+const Order = require('../models/order');
 const { errorHandler } = require('../helpers/dbErrorHandler');
 
 exports.orderById = (req, res, next, id) => {
@@ -16,6 +16,7 @@ exports.orderById = (req, res, next, id) => {
 };
 
 exports.orderByRef = (req, res, next, id) => {
+  console.log(id);
   Order.find({ referenceId: id })
     .populate('product', 'name price')
     .exec((err, order) => {
@@ -30,7 +31,6 @@ exports.orderByRef = (req, res, next, id) => {
 };
 
 exports.read = (req, res) => {
- 
   return res.json(req.order);
 };
 
@@ -72,7 +72,7 @@ exports.create = (req, res) => {
   order.save((err, order) => {
     if (err) {
       return res.status(400).json({
-       err
+        err,
       });
     }
 
@@ -111,6 +111,28 @@ exports.updateOrderStatus = (req, res) => {
         });
       }
       res.json(order);
+    }
+  );
+};
+
+exports.update = (req, res) => {
+console.log(req.order);
+  Order.findOne(
+    {
+      referenceId: req.order.referenceId,
+    },
+    (err, order) => {
+      if (err || !order) {
+        return res.status(400).json({ error: 'orderssss not found' });
+      }
+      order.status = 1;
+      order.save((err, updatedOrder) => {
+        if (err) {
+          console.log('PAYMENT UPDATE ERROR', err);
+          return res.status(400).json({ error: 'Payment update failed' });
+        }
+        res.json(updatedOrder);
+      });
     }
   );
 };
