@@ -323,3 +323,19 @@ exports.decreaseQuantity = (req, res, next) => {
     next();
   });
 };
+
+
+exports.readID = (req, res) => {
+  Product.find({ _id: req.product._id })
+    .populate('category')
+    .select('-photo')
+
+    .exec((err, product) => {
+      if (err) {
+        return res.status(400).json({
+          error: 'product not found',
+        });
+      }
+      res.json(product);
+    });
+};

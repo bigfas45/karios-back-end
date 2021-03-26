@@ -51,7 +51,7 @@ exports.create = (req, res) => {
 
     gallery.save((err, result) => {
       if (err) {
-        return res.status(400).json({ error: errorHandler(err) });
+        return res.status(400).json({ err });
       }
       res.json(result);
     });

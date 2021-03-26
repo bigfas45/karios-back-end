@@ -3,7 +3,7 @@ const { errorHandler } = require('../helpers/dbErrorHandler');
 
 exports.orderById = (req, res, next, id) => {
   Order.findById(id)
-    .populate('products.product', 'name price')
+    .populate('product', 'name price')
     .exec((err, order) => {
       if (err || !order) {
         return res.status(400).json({
@@ -16,7 +16,6 @@ exports.orderById = (req, res, next, id) => {
 };
 
 exports.orderByRef = (req, res, next, id) => {
-  console.log(id);
   Order.find({ referenceId: id })
     .populate('product', 'name price')
     .exec((err, order) => {
@@ -27,6 +26,22 @@ exports.orderByRef = (req, res, next, id) => {
       }
       req.order = order;
       next();
+    });
+};
+
+
+exports.listOrdersId = (req, res) => {
+   var id = req.params.id;
+  Order.find({ referenceId: id })
+    .populate('user', '_id name address')
+    .sort('-created')
+    .exec((err, orders) => {
+      if (err) {
+        return res.status(400).json({
+          error: errorHandler(error),
+        });
+      }
+      res.json(orders);
     });
 };
 
@@ -100,30 +115,15 @@ exports.getStatusValues = (req, res) => {
   res.json(Order.schema.path('status').enumValues);
 };
 
-exports.updateOrderStatus = (req, res) => {
-  Order.update(
-    { _id: req.body.orderId },
-    { $set: { status: req.body.status } },
-    (err, order) => {
-      if (err) {
-        return res.status(400).json({
-          error: errorHandler(err),
-        });
-      }
-      res.json(order);
-    }
-  );
-};
-
 exports.update = (req, res) => {
-console.log(req.order);
+  console.log(req.order._id);
   Order.findOne(
     {
-      referenceId: req.order.referenceId,
+      _id: req.order._id,
     },
     (err, order) => {
       if (err || !order) {
-        return res.status(400).json({ error: 'orderssss not found' });
+        return res.status(400).json({ error: 'Payment not found' });
       }
       order.status = 1;
       order.save((err, updatedOrder) => {
@@ -135,4 +135,19 @@ console.log(req.order);
       });
     }
   );
+};
+
+exports.listRelated = (req, res) => {
+  console.log(req.product._id);
+  Order.find({ product: req.product._id })
+    .populate('product', '-photo')
+    .select('-file')
+    .exec((err, orders) => {
+      if (err) {
+        return res.status(400).json({
+          error: 'orders not found',
+        });
+      }
+      res.json(orders);
+    });
 };

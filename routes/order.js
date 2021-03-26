@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const { requireSignin, isAuth, isAdmin } = require("../controllers/auth");
-const {  userById } = require("../controllers/user");
+const { requireSignin, isAuth, isAdmin } = require('../controllers/auth');
+const { userById } = require('../controllers/user');
 const {
   create,
   listOrders,
@@ -10,23 +10,23 @@ const {
   orderByRef,
   read,
   update,
+  listRelated,
+  listOrdersId,
 } = require('../controllers/order');
+const { productById } = require('../controllers/product');
 
+router.post('/order/create', create);
 
-router.post('/order/create',  create);
+router.get('/order/id/:id', listOrdersId);
 
 router.get('/order/list/:orderRef', read);
+router.get('/order/related/:projectId', listRelated);
 
-
-router.put('/order/update/:orderRef', update);
-
+router.put('/order/update/:orderId', update);
 
 router.param('userId', userById);
-
-
 router.param('orderId', orderById);
-
 router.param('orderRef', orderByRef);
+router.param('projectId', productById);
 
-
-module.exports = router
+module.exports = router;
