@@ -17,13 +17,6 @@ exports.careById = (req, res, next, id) => {
 
 exports.create = (req, res) => {
 
-  const email = req.body.email;
-
- 
-
-  
-
-
   const care = new Care(req.body);
   care.save((err, data) => {
     if (err) {
