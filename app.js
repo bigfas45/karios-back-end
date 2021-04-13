@@ -19,6 +19,10 @@ const orderRoutes = require('./routes/order');
 const contactForm = require('./routes/contactForm');
 const galleryRoutes = require('./routes/gallery');
 const emailRoutes = require('./routes/email');
+const braintreeRoutes = require('./routes/braintree');
+const careRoutes = require('./routes/care');
+
+
 // db
 mongoose
   .connect(process.env.DATABASE, {
@@ -45,6 +49,8 @@ app.use('/api', orderRoutes);
 app.use('/api', contactForm);
 app.use('/api', galleryRoutes);
 app.use('/api', emailRoutes);
+app.use('/api', braintreeRoutes);
+app.use('/api', careRoutes);
 
 
 const port = process.env.PORT || 8000;
