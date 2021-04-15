@@ -3,7 +3,13 @@ const router = express.Router();
 
 
 
-const { create, update, careById } = require('../controllers/care');
+const {
+  create,
+  update,
+  careById,
+  emailAdmin,
+  emailUser,
+} = require('../controllers/care');
 
 
 
@@ -16,7 +22,9 @@ router.put(
   update
 );
 
+router.get('/care/email/:careId', emailAdmin);
 
+router.get('/care/emailUser/:careId', emailUser);
 
 
 
