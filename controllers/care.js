@@ -5,7 +5,7 @@ sgMail.setApiKey(process.env.SDMAILKEY);
 
 
 exports.careById = (req, res, next, id) => {
-  Care.findById(id).exec((err, care) => {
+  Care.findOne({email: id}).exec((err, care) => {
     if (err || !care) {
       return res.status(400).json({
         error: 'care does not exsit',
