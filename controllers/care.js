@@ -32,23 +32,79 @@ exports.create = (req, res) => {
 
 exports.update = (req, res) => {
   const care = req.care;
-  care.name = req.body.name;
-  care.dob = req.body.dob;
-  care.telephone = req.body.telephone;
-  care.email = req.body.email;
-  care.gender = req.body.gender;
-  care.certificate = req.body.certificate;
-  care.expiresAt = req.body.expiresAt;
-  care.IELTS = req.body.IELTS;
-  care.Nurse = req.body.Nurse;
-  care.NMC = req.body.NMC;
-  care.CBT = req.body.CBT;
-  care.discipline = req.body.discipline;
-  care.experience = req.body.experience;
-  care.workingNurse = req.body.workingNurse;
-  care.department = req.body.department;
-  care.relation = req.body.relation;
-  care.notice = req.body.notice;
+  const {
+    name,
+    dob,
+    telephone,
+    certificate,
+    expiresAt,
+    IELTS,
+    Nurse,
+    NMC,
+    CBT,
+    discipline,
+    experience,
+    workingNurse,
+    department,
+    relation,
+    notice,
+    email,
+    gender,
+  } = req.body;
+  
+
+   if (name) {
+     care.name = name;
+  }
+   if (dob) {
+     care.dob = dob;
+   }
+   if (telephone) {
+     care.telephone = telephone;
+   }
+   if (certificate) {
+     care.certificate = certificate;
+   }
+   if (expiresAt) {
+     care.expiresAt = expiresAt;
+  }
+   if (IELTS) {
+     care.IELTS = IELTS;
+  }
+   if (Nurse) {
+     care.Nurse = Nurse;
+   }
+    if (NMC) {
+      care.NMC = NMC;
+  }
+   if (CBT) {
+     care.CBT = CBT;
+  }
+   if (discipline) {
+     care.discipline = discipline;
+   }
+    if (experience) {
+      care.experience = experience;
+    }
+     if (workingNurse) {
+       care.workingNurse = workingNurse;
+  }
+   if (department) {
+     care.department = department;
+  }
+   if (relation) {
+     care.relation = relation;
+   }
+    if (notice) {
+      care.notice = notice;
+    }
+     if (email) {
+       care.email = email;
+     }
+   if (gender) {
+     care.gender = gender;
+   }
+  
 
   care.save((err, data) => {
     if (err) {
