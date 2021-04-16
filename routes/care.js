@@ -17,7 +17,7 @@ const {
 router.post('/care/create', create);
 
 router.put(
-  '/care/:careId',
+  '/care/update/:careId',
 
   update
 );
