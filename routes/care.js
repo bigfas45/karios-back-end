@@ -16,11 +16,7 @@ const {
 
 router.post('/care/create', create);
 
-router.put(
-  '/care/update/:careId',
-
-  update
-);
+router.put('/care/update/:careId',  update);
 
 router.get('/care/email/:careId', emailAdmin);
 
