@@ -221,8 +221,9 @@ exports.emailUser = async (req, res) => {
   const emailData = {
     from: 'afasina@nasdng.com',
     to: `${req.care.email}`,
-    subject: `Dear ${req.care.name}`,
-    html: `<!DOCTYPE html>
+    subject: `New Overseas Nurse Recruitment Application`,
+    html: `
+<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0 auto !important;padding: 0 !important;font-size: 14px;margin-bottom: 10px;line-height: 24px;color: #8094ae;font-weight: 400;height: 100% !important;width: 100% !important;font-family: 'Roboto', sans-serif !important;">
 <head style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;">
     <meta charset="utf-8" style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;">
@@ -231,8 +232,12 @@ exports.emailUser = async (req, res) => {
     <meta name="x-apple-disable-message-reformatting" style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;">
     <title style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;"></title>
     
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,600" rel="stylesheet" type="text/css" style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;">
     
+ 
+    
+    
+    
+
 </head>
 
 <body width="100%" style="margin: 0 auto !important;padding: 0 !important;mso-line-height-rule: exactly;background-color: #f5f6fa;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;font-size: 14px;margin-bottom: 10px;line-height: 24px;color: #8094ae;font-weight: 400;height: 100% !important;width: 100% !important;font-family: 'Roboto', sans-serif !important;">
@@ -245,7 +250,7 @@ exports.emailUser = async (req, res) => {
                             <tr style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;">
                                 <td style="text-align: center;padding-bottom: 25px;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;mso-table-lspace: 0pt !important;mso-table-rspace: 0pt !important;">
                                     <a href="#" style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;text-decoration: none;"><img style="height: 40px;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;-ms-interpolation-mode: bicubic;" src="https://nasdng.com/wp-content/uploads/2021/04/Picture1.jpg" alt="logo"></a>
-                                    
+                                    <p style="font-size: 14px;color: #6576ff;padding-top: 12px;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;">New Overseas Nurse Recruitment Application</p>
                                 </td>
                             </tr>
                         </tbody>
@@ -254,43 +259,44 @@ exports.emailUser = async (req, res) => {
                         <tbody style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;">
                             <tr style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;">
                                 <td style="padding: 30px 30px 15px 30px;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;mso-table-lspace: 0pt !important;mso-table-rspace: 0pt !important;">
-                                    <h2 style="font-size: 18px;color: red;font-weight: 600;margin: 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;padding: 0;">NEW REGISTERED USER
-</h2>
+                                    <h2 style="font-size: 18px;font-weight: 600;margin: 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;padding: 0;">Dear ${req.care.name},</h2>
                                 </td>
                             </tr>
                             <tr style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;">
                                 <td style="padding: 0 30px 20px;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;mso-table-lspace: 0pt !important;mso-table-rspace: 0pt !important;">
-                                    <p style="margin-bottom: 10px;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;">Dear ${req.care.name},</p>
-                                    <p style="margin-bottom: 10px;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;">Thank you for your recent application to Connect Care Ltd </p>
-                                    <p style="margin-bottom: 10px;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0; color:red;">New Overseas Nurse Recruitment Application</p>
-                                </td>
-                                    
-                                      <p style="color: black;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;"><b style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;"> Once your application has been verified, a connect care Ltd compliance staff will get in touch with you within 48hours to advise on the status of your application. Make sure all contact information are accurate. If you require any further information, please send email to nurses@connectcareltd.com.  </b></p>
-
-                                     <p style="color: black;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;">EMAIL :  Kind regards<br/>
-
-Connect Care Ltd<br/>
-
-Compliance Team<br/>
-
-nurses@connectcareltd.com  </p>
-
-
+                                    <p style="font-size: 18px;font-weight: 600;margin: 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;padding: 0;">Thank you for your recent application to Connect Care Ltd</p>
+                                    <p style="font-size: 18px; color:red; font-weight: 600;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;padding: 0;">New Overseas Nurse Recruitment Application</p>
+                                     <p style="font-size: 18px;font-weight: 600;margin: 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;padding: 0;">Your preapplication has been received, kindly click the link below to finalise your registration..</p>
+                                    <p style="margin-bottom: 25px;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;"></p>
+                                    <a href="#" style="background-color: red;border-radius: 4px;color: #ffffff;display: inline-block;font-size: 13px;font-weight: 600;line-height: 44px;text-align: center;text-decoration: none;text-transform: uppercase;padding: 0 30px;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;">Link</a>
                                 </td>
                             </tr>
-                         
+                           
+                            <tr style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;">
+                                <td style="padding: 20px 30px 40px;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;mso-table-lspace: 0pt !important;mso-table-rspace: 0pt !important;">
+                                    <p style="font-size: 18px;font-weight: 600;margin: 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;padding: 0;">Once your application has been verified, a connect care Ltd compliance staff will get in touch with you within 48hours to advise on the status of your application. Make sure all contact information are accurate. If you require any further information, please send email to nurses@connectcareltd.com.</p>
+                                     <p style="margin: 0;font-size: 13px;line-height: 22px;color: #9ea8bb;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;padding: 0;">Kind regards</p>
+                                       <p style="margin: 0;font-size: 13px;line-height: 22px;color: #9ea8bb;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;padding: 0;"> Connect Care Ltd</p>
+                                       <p style="margin: 0;font-size: 13px;line-height: 22px;color: #9ea8bb;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;padding: 0;"> Compliance Team</p>
+                                      <p style="margin: 0;font-size: 13px;line-height: 22px;color: #9ea8bb;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;padding: 0;">  nurses@connectcareltd.com </p>
 
+                                     <p style="font-size: 13px;line-height: 22px;color: #9ea8bb;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;padding: 0;"></p>
+                                    <p style="margin: 0;font-size: 13px;line-height: 22px;color: #9ea8bb;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;padding: 0;">This is an automatically generated email please do not reply to this email. If you face any issues, please contact us at  nurses@connectcareltd.com</p>
+                                
+                                    </td>
+
+                            </tr>
+                                         
                         </tbody>
-
                     </table>
-
-                
+       
+                   
                </td>
             </tr>
         </table>
     </center>
 </body>
-</html> 
+</html>
 `,
   };
   // @ts-ignore
