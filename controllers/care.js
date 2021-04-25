@@ -263,7 +263,6 @@ exports.emailUser = async (req, res) => {
                                     <p style="margin-bottom: 10px;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;">Dear ${req.care.name},</p>
                                     <p style="margin-bottom: 10px;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;">Thank you for your recent application to Connect Care Ltd </p>
                                     <p style="margin-bottom: 10px;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0; color:red;">New Overseas Nurse Recruitment Application</p>
-                                      <a href="#" style="background-color:#6576ff;border-radius:4px;color:red;display:inline-block;font-size:13px;font-weight:600;line-height:44px;text-align:center;text-decoration:none;text-transform: uppercase; padding: 0 30px">Verify Email</a>
                                 </td>
                                     
                                       <p style="color: black;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;"><b style="-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;"> Once your application has been verified, a connect care Ltd compliance staff will get in touch with you within 48hours to advise on the status of your application. Make sure all contact information are accurate. If you require any further information, please send email to nurses@connectcareltd.com.  </b></p>
