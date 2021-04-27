@@ -268,7 +268,7 @@ exports.emailUser = async (req, res) => {
                                     <p style="font-size: 18px; color:red; font-weight: 600;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;padding: 0;">New Overseas Nurse Recruitment Application</p>
                                      <p style="font-size: 18px;font-weight: 600;margin: 0;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;padding: 0;">Your preapplication has been received, kindly click the link below to finalise your registration..</p>
                                     <p style="margin-bottom: 25px;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;padding: 0;"></p>
-                                    <a href="#" style="background-color: red;border-radius: 4px;color: #ffffff;display: inline-block;font-size: 13px;font-weight: 600;line-height: 44px;text-align: center;text-decoration: none;text-transform: uppercase;padding: 0 30px;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;">Link</a>
+                                    <a href="https://forms.gle/3boDi6GT9BMeUEvH9" style="background-color: red;border-radius: 4px;color: #ffffff;display: inline-block;font-size: 13px;font-weight: 600;line-height: 44px;text-align: center;text-decoration: none;text-transform: uppercase;padding: 0 30px;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;margin: 0;">Link</a>
                                 </td>
                             </tr>
                            
