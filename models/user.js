@@ -19,7 +19,19 @@ const userSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
-    about: {
+    address: {
+      type: String,
+      trim: true,
+    },
+    telephone: {
+      type: String,
+      trim: true,
+    },
+    city: {
+      type: String,
+      trim: true,
+    },
+    sex: {
       type: String,
       trim: true,
     },
