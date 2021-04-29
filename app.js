@@ -35,7 +35,14 @@ mongoose
 
 // middlewares
 app.use(morgan('dev'));
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '50mb' }))
+app.use(
+  bodyParser.urlencoded({
+    limit: '50mb',
+    parameterLimit: 100000,
+    extended: false,
+  })
+);
 app.use(cookieParser());
 app.use(expressValidator());
 app.use(cors());
