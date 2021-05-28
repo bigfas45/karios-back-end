@@ -12,6 +12,7 @@ const {
   update,
   listRelated,
   listOrdersId,
+  listRelated2,
 } = require('../controllers/order');
 const { productById } = require('../controllers/product');
 
@@ -21,6 +22,7 @@ router.get('/order/id/:id', listOrdersId);
 
 router.get('/order/list/:orderRef', read);
 router.get('/order/related/:projectId', listRelated);
+router.get('/order/related2/:projectId', listRelated2);
 
 router.put('/order/update/:orderId', update);
 

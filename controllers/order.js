@@ -138,8 +138,23 @@ exports.update = (req, res) => {
 };
 
 exports.listRelated = (req, res) => {
-  console.log(req.product._id);
+ 
   Order.find({ product: req.product._id })
+    .populate('product', '-photo')
+    .select('-file')
+    .exec((err, orders) => {
+      if (err) {
+        return res.status(400).json({
+          error: 'orders not found',
+        });
+      }
+      res.json(orders);
+    });
+};
+
+exports.listRelated2 = (req, res) => {
+  
+  Order.findOne({ product: req.product._id })
     .populate('product', '-photo')
     .select('-file')
     .exec((err, orders) => {
