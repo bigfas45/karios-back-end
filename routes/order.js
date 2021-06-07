@@ -13,6 +13,7 @@ const {
   listRelated,
   listOrdersId,
   listRelated2,
+  updateHook
 } = require('../controllers/order');
 const { productById } = require('../controllers/product');
 
@@ -25,6 +26,8 @@ router.get('/order/related/:projectId', listRelated);
 router.get('/order/related2/:projectId', listRelated2);
 
 router.put('/order/update/:orderId', update);
+
+router.put('/order/webhook/', updateHook);
 
 router.param('userId', userById);
 router.param('orderId', orderById);

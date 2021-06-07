@@ -29,10 +29,9 @@ exports.orderByRef = (req, res, next, id) => {
     });
 };
 
-
 exports.listOrdersId = (req, res) => {
-   var id = req.params.id;
-  Order.find({ referenceId: id })
+  var id = req.params.id;
+  Order.findOne({ referenceId: id })
     .populate('user', '_id name address')
     .sort('-created')
     .exec((err, orders) => {
@@ -137,8 +136,51 @@ exports.update = (req, res) => {
   );
 };
 
+exports.updateHook = (req, res) => {
+  // retrieve the signature from the header
+  var hash = req.headers['verif-hash'];
+
+  if (!hash) {
+    // discard the request,only a post with rave signature header gets our attention
+  }
+
+  // Get signature stored as env variable on your server
+  const secret_hash = '0NQqvmPk6cDA7ZWHgD-KiQ';
+
+  // check if signatures match
+
+  if (hash !== secret_hash) {
+    // silently exit, or check that you are passing the write hash on your server.
+  }
+
+  // Retrieve the request's body
+  var request_json = JSON.parse(request.body);
+
+  console.log(request_json);
+
+  var ref = request_json.txRef;
+
+  Order.findOne(
+    {
+      referenceId: ref,
+    },
+    (err, order) => {
+      if (err || !order) {
+        return res.status(400).json({ error: 'Payment not found' });
+      }
+      order.status = 1;
+      order.save((err, updatedOrder) => {
+        if (err) {
+          console.log('PAYMENT UPDATE ERROR', err);
+          return res.status(400).json({ error: 'Payment update failed' });
+        }
+        res.json(updatedOrder);
+      });
+    }
+  );
+};
+
 exports.listRelated = (req, res) => {
- 
   Order.find({ product: req.product._id })
     .populate('product', '-photo')
     .select('-file')
@@ -153,7 +195,6 @@ exports.listRelated = (req, res) => {
 };
 
 exports.listRelated2 = (req, res) => {
-  
   Order.findOne({ product: req.product._id })
     .populate('product', '-photo')
     .select('-file')
