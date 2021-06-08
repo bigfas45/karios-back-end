@@ -5,7 +5,7 @@ exports.mail = (req, res) => {
   console.log(req.order);
 
   const emailData = {
-    to: `ayodimejifasina@gmail.com`,
+    to: `info@kairosng.com`,
     from: 'afasina@nasdng.com',
     subject: `You have a new Order`,
     html: `
