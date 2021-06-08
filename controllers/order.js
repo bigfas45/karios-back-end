@@ -134,24 +134,25 @@ exports.update = (req, res) => {
       });
     }
   );
+  
 };
 
 exports.updateHook = (req, res) => {
   // retrieve the signature from the header
-  var hash = req.headers['verif-hash'];
+  // var hash = req.headers['verif-hash'];
 
-  if (!hash) {
-    // discard the request,only a post with rave signature header gets our attention
-  }
+  // if (!hash) {
+  //   // discard the request,only a post with rave signature header gets our attention
+  // }
 
-  // Get signature stored as env variable on your server
-  const secret_hash = '0NQqvmPk6cDA7ZWHgD-KiQ';
+  // // Get signature stored as env variable on your server
+  // const secret_hash = '0NQqvmPk6cDA7ZWHgD-KiQ';
 
-  // check if signatures match
+  // // check if signatures match
 
-  if (hash !== secret_hash) {
-    // silently exit, or check that you are passing the write hash on your server.
-  }
+  // if (hash !== secret_hash) {
+  //   // silently exit, or check that you are passing the write hash on your server.
+  // }
 
   // Retrieve the request's body
   var request_json = JSON.parse(request.body);
@@ -162,7 +163,7 @@ exports.updateHook = (req, res) => {
 
   Order.findOne(
     {
-      referenceId: ref,
+      referenceId: 1623084176310,
     },
     (err, order) => {
       if (err || !order) {
