@@ -56,7 +56,7 @@ app.use('/api', orderRoutes);
 app.use('/api', contactForm);
 app.use('/api', galleryRoutes);
 app.use('/api', emailRoutes);
-app.use('/api', braintreeRoutes);
+//app.use('/api', braintreeRoutes);
 app.use('/api', careRoutes);
 
 
