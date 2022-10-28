@@ -19,7 +19,7 @@ const orderRoutes = require('./routes/order');
 const contactForm = require('./routes/contactForm');
 const galleryRoutes = require('./routes/gallery');
 const emailRoutes = require('./routes/email');
-const braintreeRoutes = require('./routes/braintree');
+//const braintreeRoutes = require('./routes/braintree');
 const careRoutes = require('./routes/care');
 
 
